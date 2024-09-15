@@ -1,0 +1,5 @@
+load_file("nrngui.hoc")
+load_file("import3d.hoc")
+load_file("apical_simulation.hoc")
+
+load_file("showcomp.ses") // 加载显示每个间室的.ses文件

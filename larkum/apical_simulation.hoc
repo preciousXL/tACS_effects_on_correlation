@@ -1,0 +1,46 @@
+load_file("070603c2.cll")//the layer 5 cell
+
+axon.L=10
+axon.diam=5
+
+
+create axon1
+axon1.L = 200
+axon1.diam = 1
+
+axon1.nseg = 11
+access axon1
+pt3dclear()
+pt3dadd(1.8919873237609863, -38.355892181396484, -2.1988437175750732, 1)
+pt3dadd(1.8919873237609863, -38.355892181396484-200, -2.1988437175750732, 1)
+connect axon1(0),axon(1)
+
+
+objref tuft, apical
+tuft = new SectionList()
+apical = new SectionList()
+apic[45].L=1apic[30].L=1apic[74].L=1
+access apic[1]
+apical.subtree()
+access apic 
+apical.append()
+access apic[10]
+tuft.subtree()
+
+forall {
+	nseg=11
+	insert pas
+	e_pas=-70
+	g_pas=1/20000
+	cm=1
+}
+
+
+forsec tuft cm=1.4
+forsec apical	diam=diam*1.2
+
+access soma
+forsec apical {nseg=11}
+
+global_ra = 80
+celsius = 34
